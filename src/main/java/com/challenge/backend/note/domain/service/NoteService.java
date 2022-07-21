@@ -8,6 +8,5 @@ public interface NoteService {
     Note getById(Long noteId);
     Note create(Long userId, Note request);
     Note update(Long noteId, Note request);
-    Note addCategorytoNote(Long noteId , Category category);
     ResponseEntity<?> delete(Long noteId);
 }

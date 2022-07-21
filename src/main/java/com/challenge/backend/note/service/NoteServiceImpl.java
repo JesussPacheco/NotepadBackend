@@ -39,6 +39,7 @@ public class NoteServiceImpl implements NoteService {
             throw new ResourceValidationException(ENTITY, violations);
         User user = userRepository.findById(userId).orElseThrow(() -> new ResourceNotFoundException("User", userId));
         Note note = new Note();
+        user.getNotes().add(note);
         note = noteRepository.save(note.withUser(user).
                 withTitle(request.getTitle()).
                 withContent(request.getContent()).
