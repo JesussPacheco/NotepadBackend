@@ -2,6 +2,7 @@ package com.challenge.backend.category.model.entity;
 
 import com.challenge.backend.note.domain.model.entity.Note;
 import com.challenge.backend.shared.domain.model.entity.AuditModel;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -25,6 +26,7 @@ public class Category  extends AuditModel {
     @NotNull
     private String name;
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "categories")
     private Set<Note>notes;
 

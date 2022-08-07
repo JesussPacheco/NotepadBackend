@@ -4,6 +4,8 @@ import com.challenge.backend.shared.exception.ResourceValidationException;
 import com.challenge.backend.users.domain.model.Entity.User;
 import com.challenge.backend.users.domain.persistance.UserRepository;
 import com.challenge.backend.users.domain.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +16,7 @@ import java.util.Set;
 public class UserServiceImpl  implements UserService {
     private static final String ENTITY = "User";
     private final UserRepository userRepository;
+
     private final Validator validator;
 
     public UserServiceImpl(UserRepository userRepository, Validator validator) {
