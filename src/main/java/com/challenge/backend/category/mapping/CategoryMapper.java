@@ -7,11 +7,10 @@ import com.challenge.backend.category.resources.update.UpdateCategoryResource;
 import com.challenge.backend.shared.mapping.EnhancedModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.io.Serializable;
-
-public class CategoryMapper implements Serializable {
+public class CategoryMapper {
     @Autowired
     private EnhancedModelMapper mapper;
+
     public CategoryResource toResource(Category model){
         return mapper.map(model,CategoryResource.class);
     }

@@ -1,6 +1,9 @@
 package com.challenge.backend.note.Api;
 
 
+import com.challenge.backend.category.mapping.CategoryMapper;
+import com.challenge.backend.category.resources.create.CreateCategoryResource;
+import com.challenge.backend.note.domain.model.entity.Note;
 import com.challenge.backend.note.domain.service.NoteService;
 import com.challenge.backend.note.mapping.NoteMapper;
 import com.challenge.backend.note.resources.NoteResource;
@@ -17,9 +20,12 @@ import javax.validation.Valid;
 public class NoteController {
     private final NoteService noteService;
     private final NoteMapper noteMapper;
-    public NoteController(NoteService noteService,NoteMapper noteMapper ){
+    private final CategoryMapper categoryMapper;
+    
+    public NoteController(NoteService noteService,NoteMapper noteMapper , CategoryMapper categoryMapper){
         this.noteService = noteService;
         this.noteMapper = noteMapper;
+        this.categoryMapper = categoryMapper;
     }
     @GetMapping("{noteId}")
     public NoteResource getNoteById(@PathVariable Long noteId) {
@@ -38,6 +44,10 @@ public class NoteController {
         return noteMapper.toResource(noteService.update(noteId, noteMapper.toModel(request)));
     }
 
+    @PostMapping("/{noteId}/add")
+    public ResponseEntity<Note> addCategoryToNote(@PathVariable Long noteId ,@Valid @RequestBody CreateCategoryResource request){
+            return ResponseEntity.ok(noteService.addCategoryToNote(noteId, categoryMapper.toModel(request)));
+    }
     @DeleteMapping("{noteId}")
     public ResponseEntity<?> deleteNote(@PathVariable Long noteId) {
         return noteService.delete(noteId);
