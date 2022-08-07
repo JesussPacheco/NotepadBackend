@@ -21,7 +21,7 @@ public class NoteController {
     private final NoteService noteService;
     private final NoteMapper noteMapper;
     private final CategoryMapper categoryMapper;
-    
+
     public NoteController(NoteService noteService,NoteMapper noteMapper , CategoryMapper categoryMapper){
         this.noteService = noteService;
         this.noteMapper = noteMapper;

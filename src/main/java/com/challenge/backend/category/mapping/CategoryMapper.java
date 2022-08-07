@@ -1,13 +1,14 @@
 package com.challenge.backend.category.mapping;
-
 import com.challenge.backend.category.model.entity.Category;
 import com.challenge.backend.category.resources.CategoryResource;
 import com.challenge.backend.category.resources.create.CreateCategoryResource;
 import com.challenge.backend.category.resources.update.UpdateCategoryResource;
 import com.challenge.backend.shared.mapping.EnhancedModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import java.io.Serializable;
 
-public class CategoryMapper {
+public class CategoryMapper implements Serializable {
+
     @Autowired
     private EnhancedModelMapper mapper;
 
