@@ -1,6 +1,7 @@
 package com.challenge.backend.shared.mapping;
 
 
+import com.challenge.backend.category.mapping.CategoryMapper;
 import com.challenge.backend.note.mapping.NoteMapper;
 import com.challenge.backend.users.mapping.UserMapper;
 import org.springframework.context.annotation.Bean;
@@ -18,4 +19,7 @@ public class MappingConfiguration {
 
     @Bean
     public NoteMapper noteMapper(){ return new NoteMapper();}
+
+    @Bean
+    public CategoryMapper categoryMapper () { return  new CategoryMapper();}
 }
