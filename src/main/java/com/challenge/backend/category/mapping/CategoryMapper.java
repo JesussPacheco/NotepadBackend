@@ -5,8 +5,11 @@ import com.challenge.backend.category.resources.create.CreateCategoryResource;
 import com.challenge.backend.category.resources.update.UpdateCategoryResource;
 import com.challenge.backend.shared.mapping.EnhancedModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import java.io.Serializable;
 
+@Component
 public class CategoryMapper implements Serializable {
 
     @Autowired
